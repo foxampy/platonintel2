@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категория | Plato-Intel v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #3b82f6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: white;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 0.875rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
+        /* Category Header */
+        .category-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .category-header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .category-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        .category-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1400px;
+            margin: 1rem auto;
+            padding: 0 2rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .breadcrumbs a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Subcategories */
+        .subcategories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .subcategory-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .subcategory-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .subcategory-icon {
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+        
+        .subcategory-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+        
+        .subcategory-count {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        /* Filters Bar */
+        .filters-bar {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+        
+        .filter-tag button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0;
+            display: flex;
+        }
+        
+        .filter-tag button:hover {
+            color: #ef4444;
+        }
+        
+        .sort-select {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+            font-size: 0.875rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Product Card */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badges {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .badge-in-stock {
+            background: #10b981;
+            color: white;
+        }
+        
+        .badge-low-stock {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-sku {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .product-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .product-name a:hover {
+            color: #3b82f6;
+        }
+        
+        .product-specs {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+        
+        .product-specs span {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .product-specs strong {
+            color: #1e293b;
+        }
+        
+        .product-footer {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .price-currency {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-cart {
+            flex: 1;
+            padding: 0.75rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-cart:hover {
+            background: #2563eb;
+        }
+        
+        .btn-wishlist {
+            padding: 0.75rem;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-wishlist:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .page-btn {
+            min-width: 40px;
+            height: 40px;
+            padding: 0 0.75rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-btn:hover:not(.active):not(:disabled) {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .page-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .category-title {
+                font-size: 1.75rem;
+            }
+            
+            .category-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">PI</div>
+                <span>Plato-Intel v2</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="#">О компании</a>
+                <a href="#">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">Войти</button>
+                <button class="btn btn-primary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Запрос (0)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Header -->
+    <div class="category-header">
+        <div class="category-header-container">
+            <h1 class="category-title">Крановые тормоза</h1>
+            <p class="category-description">Тормозные системы для кранового оборудования различных типов и модификаций. Колодочные, дисковые и электромагнитные тормоза для механизмов подъема и передвижения.</p>
+            <div class="category-stats">
+                <div class="stat-item">
+                    <span class="stat-value">11</span>
+                    <span class="stat-label">товаров</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">от 18 500 ₽</span>
+                    <span class="stat-label">цена</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">12-18 мес</span>
+                    <span class="stat-label">гарантия</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <span>Крановые тормоза</span>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Filters Bar -->
+        <div class="filters-bar">
+            <div class="filter-tags">
+                <span class="filter-tag">
+                    В наличии
+                    <button><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </span>
+                <span class="filter-tag">
+                    Цена: до 60 000 ₽
+                    <button><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </span>
+            </div>
+            <select class="sort-select">
+                <option value="popular">По популярности</option>
+                <option value="price-asc">Цена: по возрастанию</option>
+                <option value="price-desc">Цена: по убыванию</option>
+                <option value="name">По названию</option>
+            </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid">
+            <!-- Product Card 1 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKG-160" alt="Тормоз ТКГ-160">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKG-160-TE30</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКГ-160 с гидротолкателем ТЭ-30</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>160 Н·м</strong></span>
+                        <span>Шкив: <strong>200 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">28 500</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 2 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKG-200" alt="Тормоз ТКГ-200">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKG-200-TE30</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКГ-200 с гидротолкателем ТЭ-30</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>200 Н·м</strong></span>
+                        <span>Шкив: <strong>250 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">32 400</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 3 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKG-300" alt="Тормоз ТКГ-300">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKG-300-TE50</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКГ-300 с гидротолкателем ТЭ-50</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>300 Н·м</strong></span>
+                        <span>Шкив: <strong>300 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">45 600</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 4 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKG-400" alt="Тормоз ТКГ-400">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKG-400-TE80</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКГ-400 с гидротолкателем ТЭ-80</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>400 Н·м</strong></span>
+                        <span>Шкив: <strong>400 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">58 900</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 5 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKT-100" alt="Тормоз ТКТ-100">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKT-100-MO100</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКТ-100 с магнитом МО-100</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>100 Н·м</strong></span>
+                        <span>Шкив: <strong>150 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">24 500</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 6 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/400x300/1a365d/ffffff?text=TKT-200" alt="Тормоз ТКТ-200">
+                    <div class="product-badges">
+                        <span class="badge badge-in-stock">В наличии</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-sku">Арт: TKT-200-MO200</div>
+                    <h3 class="product-name">
+                        <a href="product.html">Тормоз ТКТ-200 с магнитом МО-200</a>
+                    </h3>
+                    <div class="product-specs">
+                        <span>Момент: <strong>200 Н·м</strong></span>
+                        <span>Шкив: <strong>200 мм</strong></span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="price-value">31 200</span>
+                            <span class="price-currency">₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-cart">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                В запрос
+                            </button>
+                            <button class="btn-wishlist">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn" disabled>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Plato-Intel v2. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Добавлено';
+                this.style.background = '#10b981';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = '';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

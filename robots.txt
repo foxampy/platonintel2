@@ -1,0 +1,93 @@
+# ========================================
+# PLATO-INTEL v2 — Robots.txt
+# Электротехническое оборудование
+# https://platointel.by
+# ========================================
+
+# User-agent: все поисковые роботы
+User-agent: *
+
+# Allow: разрешённые разделы
+Allow: /
+Allow: /index.html
+Allow: /catalog.html
+Allow: /about.html
+Allow: /contacts.html
+Allow: /delivery.html
+Allow: /warranty.html
+Allow: /articles.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /data/
+
+# Disallow: запрещённые разделы
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.sql$
+Disallow: /*.ini$
+Disallow: /*.log$
+Disallow: /*.config$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*search=
+
+# Crawl-delay: интервал между запросами (в секундах)
+Crawl-delay: 1
+
+# ========================================
+# Sitemap
+# ========================================
+Sitemap: https://platointel.by/sitemap.xml
+
+# ========================================
+# Host directive (Yandex-specific)
+# ========================================
+Host: https://platointel.by
+
+# ========================================
+# Специфические правила для поисковых систем
+# ========================================
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+Host: https://platointel.by
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Mail.ru
+User-agent: Mail.Ru
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# Запрет для нежелательных ботов
+# ========================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /

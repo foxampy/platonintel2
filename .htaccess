@@ -1,0 +1,255 @@
+# ========================================
+# PLATO-INTEL v2 — Apache Server Configuration
+# ========================================
+
+# Включение rewrite engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # ----------------------------------------
+    # REWRITE RULES FOR CLEAN URLs
+    # ----------------------------------------
+    
+    # Удаление .html расширения
+    RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+    RewriteRule ^ /%1 [NC,L,R]
+    
+    # Добавление .html расширения внутренне
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html [NC,L]
+    
+    # Редирект www на non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # Принудительное HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+    
+    # Редирект со старых URL (если были изменения)
+    # RewriteRule ^old-page\.html$ /new-page [R=301,L]
+</IfModule>
+
+# ----------------------------------------
+# GZIP COMPRESSION
+# ----------------------------------------
+<IfModule mod_deflate.c>
+    # Включение сжатия
+    SetOutputFilter DEFLATE
+    
+    # Не сжимать для старых браузеров
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    
+    # Уровень сжатия
+    DeflateCompressionLevel 6
+    
+    # MIME-типы для сжатия
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom+xml
+    AddOutputFilterByType DEFLATE font/truetype
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Альтернатива для mod_gzip (старые серверы)
+<IfModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
+    mod_gzip_item_include mime ^text/\.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/\.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</IfModule>
+
+# ----------------------------------------
+# BROWSER CACHING
+# ----------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS и JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Изображения
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Шрифты
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    
+    # JSON и XML
+    ExpiresByType application/json "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
+    
+    # PDF
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Cache-Control заголовки
+<IfModule mod_headers.c>
+    # HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=3600, must-revalidate"
+    </FilesMatch>
+    
+    # CSS и JavaScript
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Изображения
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Шрифты
+    <FilesMatch "\.(ttf|otf|woff|woff2|eot)$">
+        Header set Cache-Control "max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Удаление заголовка ETag (для лучшего кэширования)
+    Header unset ETag
+    FileETag None
+</IfModule>
+
+# ----------------------------------------
+# SECURITY HEADERS
+# ----------------------------------------
+<IfModule mod_headers.c>
+    # Content Security Policy
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://via.placeholder.com; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
+    
+    # X-Frame-Options - защита от clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # X-Content-Type-Options - предотвращение MIME-sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # X-XSS-Protection - защита от XSS
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer-Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions-Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Strict-Transport-Security (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# Защита скрытых файлов
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Защита конфигурационных файлов
+<FilesMatch "\.(git|svn|htaccess|env|ini|log|sh|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ----------------------------------------
+# 404 ERROR HANDLING
+# ----------------------------------------
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /404.html
+
+# ----------------------------------------
+# REDIRECTS
+# ----------------------------------------
+# Примеры редиректов (раскомментировать при необходимости)
+
+# Редирект со старой страницы на новую
+# Redirect 301 /old-page.html /new-page
+
+# Редирект всей категории
+# Redirect 301 /old-category/ /new-category/
+
+# ----------------------------------------
+# MIME TYPES
+# ----------------------------------------
+<IfModule mod_mime.c>
+    # WebP
+    AddType image/webp .webp
+    
+    # WOFF2
+    AddType font/woff2 .woff2
+    
+    # JSON
+    AddType application/json .json
+    
+    # SVG
+    AddType image/svg+xml .svg
+    
+    # Manifest
+    AddType application/manifest+json .webmanifest
+</IfModule>
+
+# ----------------------------------------
+# CHARACTER ENCODING
+# ----------------------------------------
+AddDefaultCharset UTF-8
+
+# ----------------------------------------
+# DEFAULT DOCUMENT
+# ----------------------------------------
+DirectoryIndex index.html index.htm
+
+# ----------------------------------------
+# OPTIONS
+# ----------------------------------------
+# Отключение показа содержимого директорий
+Options -Indexes
+
+# Follow symlinks
+Options +FollowSymLinks
+
+# ----------------------------------------
+# PHP SETTINGS (если используется PHP)
+# ----------------------------------------
+<IfModule mod_php.c>
+    php_flag display_errors off
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# ----------------------------------------
+# COMPRESSION FOR IMAGES (mod_brotli)
+# ----------------------------------------
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>

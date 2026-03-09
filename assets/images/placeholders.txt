@@ -1,0 +1,297 @@
+# PLATO-INTEL v2 — Image Requirements Specification
+# Total Images Needed: ~85 files
+# Last Updated: 2024
+
+================================================================================
+HERO BACKGROUNDS (7 images)
+================================================================================
+File: hero-home.jpg
+Size: 1920x1080px (16:9)
+Format: JPG (quality 85%)
+Theme: Industrial port crane at sunset, dramatic lighting
+Color Palette: Dark blues (#1a1f2e), warm orange accents (#f4a261)
+Notes: Parallax-ready, centered composition, text-safe area center-left
+
+File: hero-catalog.jpg
+Size: 1920x600px (16:5)
+Format: JPG
+Theme: Warehouse interior with electrical equipment racks
+Color Palette: Industrial grays, accent lighting
+Notes: Breadcrumb-friendly overlay area at top
+
+File: hero-about.jpg
+Size: 1920x600px
+Format: JPG
+Theme: Modern factory floor with machinery, team silhouette
+Color Palette: Steel blues, warm highlights
+
+File: hero-contacts.jpg
+Size: 1920x600px
+Format: JPG
+Theme: Industrial landscape with power lines, city silhouette
+Color Palette: Evening tones, industrial grays
+
+File: hero-delivery.jpg
+Size: 1920x600px
+Format: JPG
+Theme: Logistics - trucks, shipping containers, warehouse
+Color Palette: Neutral industrial
+
+File: hero-articles.jpg
+Size: 1920x600px
+Format: JPG
+Theme: Technical drawings, blueprints, engineering workspace
+Color Palette: Blueprint blues, white accents
+
+File: hero-warranty.jpg
+Size: 1920x600px
+Format: JPG
+Theme: Quality control, inspection, certification stamps
+Color Palette: Clean whites, gold accents
+
+================================================================================
+CATEGORY ICONS (9 icons)
+================================================================================
+Format: SVG (preferred) or PNG with transparency
+Size: 100x100px viewBox
+Style: Line icons, 2px stroke, rounded caps
+
+File: icon-crane-brakes.svg
+Name: Тормоза крановые
+Design: Brake disc with caliper symbol
+
+File: icon-contactors.svg
+Name: Контакторы
+Design: Electrical contact/switch symbol
+
+File: icon-switches.svg
+Name: Выключатели
+Design: Toggle switch icon
+
+File: icon-electromagnets.svg
+Name: Электромагниты
+Design: Magnet with field lines
+
+File: icon-starters.svg
+Name: Пускатели
+Design: Play button with power symbol
+
+File: icon-relays.svg
+Name: Реле
+Design: Relay coil with contacts
+
+File: icon-controllers.svg
+Name: Контроллеры
+Design: Microchip with circuit lines
+
+File: icon-limit-switches.svg
+Name: Концевые выключатели
+Design: Ruler with switch marker
+
+File: icon-hydraulics.svg
+Name: Гидравлика
+Design: Hydraulic piston with fluid drops
+
+================================================================================
+PRODUCT PHOTOS (Placeholder: 50+ images needed)
+================================================================================
+Format: JPG or WebP
+Size: 600x400px (3:2) for grid, 800x600 for detail view
+Background: Pure white (#FFFFFF) or transparent for PNG
+Style: Studio lighting, 3/4 angle view, consistent shadows
+
+Category: Крановые тормоза (11 products)
+- tkg-160-main.jpg, tkg-160-thumb1.jpg, tkg-160-thumb2.jpg
+- tkg-200-main.jpg, tkg-200-thumb1.jpg, tkg-200-thumb2.jpg
+- tkg-300-main.jpg
+- tkg-400-main.jpg
+- tkt-100-main.jpg, tkt-100-thumb1.jpg
+- tkt-200-main.jpg
+- tkt-300-main.jpg
+- tkp-100-main.jpg
+- tkp-200-main.jpg
+- tkp-300-main.jpg
+- tged-200-main.jpg
+
+Category: Контакторы (15 products)
+- kt-6012-main.jpg, kt-6012-thumb1.jpg
+- kt-6013-main.jpg
+- kt-6014-main.jpg
+- kt-6022-main.jpg
+- kt-6023-main.jpg
+- kt-6033-main.jpg
+- kt-6042-main.jpg
+- kt-6052-main.jpg
+- kt-6053-main.jpg
+- kv-1-14-160a-main.jpg
+- kv-1-14-250a-main.jpg
+- kv-1-14-400a-main.jpg
+- finder-25a-main.jpg
+- finder-40a-main.jpg
+- finder-63a-main.jpg
+
+[Additional categories follow same pattern...]
+
+================================================================================
+TEAM PHOTOS (6 photos)
+================================================================================
+Size: 400x400px (1:1) for grid, 600x800 for detail
+Format: JPG
+Background: Neutral gray studio backdrop
+Style: Professional corporate headshot, chest-up
+Lighting: Soft studio lighting, no harsh shadows
+
+Files:
+- team-director.jpg (Генеральный директор)
+- team-commercial.jpg (Коммерческий директор)
+- team-technical.jpg (Технический директор)
+- team-sales.jpg (Менеджер по продажам)
+- team-logistics.jpg (Руководитель логистики)
+- team-service.jpg (Руководитель сервиса)
+
+================================================================================
+CERTIFICATE THUMBNAILS (4 images)
+================================================================================
+Size: 400x560px (portrait A4 ratio)
+Format: JPG
+Style: Document scan appearance, slight perspective tilt
+Border: Subtle drop shadow, white border
+
+Files:
+- cert-compliance-2024.jpg (Сертификат соответствия)
+- cert-iso-9001.jpg (ISO 9001)
+- cert-license-trade.jpg (Лицензия на торговлю)
+- cert-partner-abb.jpg (Партнерский сертификат ABB)
+
+================================================================================
+PARTNER LOGOS (6+ logos)
+================================================================================
+Format: SVG preferred, PNG fallback
+Size: 150x50px display size, 300x100px source
+Background: Transparent
+Style: Original brand colors or monochrome version
+
+Files:
+- logo-abb.svg (ABB)
+- logo-siemens.svg (Siemens)
+- logo-schneider.svg (Schneider Electric)
+- logo-finder.svg (Finder)
+- logo-chint.svg (CHINT)
+- logo-iek.svg (IEK)
+
+================================================================================
+UI ICON SET (30+ icons)
+================================================================================
+Format: SVG sprite or individual files
+Size: 24x24px default, scalable
+Style: Line icons, 1.5px stroke
+
+Essential Icons:
+- arrow-right.svg
+- arrow-left.svg
+- chevron-down.svg
+- chevron-up.svg
+- menu.svg (hamburger)
+- close.svg (X)
+- search.svg
+- phone.svg
+- email.svg
+- location.svg
+- clock.svg
+- check.svg
+- check-circle.svg
+- info.svg
+- warning.svg
+- error.svg
+- cart.svg
+- wishlist.svg (heart)
+- share.svg
+- download.svg
+- filter.svg
+- sort.svg
+- grid-view.svg
+- list-view.svg
+- zoom-in.svg
+- play.svg
+- pause.svg
+- prev.svg
+- next.svg
+- loading.svg (spinner)
+- success.svg
+- quote.svg (testimonial)
+
+================================================================================
+WAREHOUSE/INFRASTRUCTURE (4 images)
+================================================================================
+Size: 800x600px
+Format: JPG
+Style: Professional architectural photography
+
+Files:
+- warehouse-storage.jpg
+- warehouse-packing.jpg
+- warehouse-shipping.jpg
+- office-main.jpg
+
+================================================================================
+INDUSTRY ILLUSTRATIONS (6 images)
+================================================================================
+Size: 600x400px
+Format: JPG or illustration SVG
+Style: Industrial photography or vector illustrations
+
+Files:
+- industry-port-cranes.jpg
+- industry-wind-energy.jpg
+- industry-construction.jpg
+- industry-metallurgy.jpg
+- industry-mining.jpg
+- industry-power.jpg
+
+================================================================================
+FAVICON SET
+================================================================================
+File: favicon.ico (multi-resolution: 16x16, 32x32, 48x48)
+File: favicon-16x16.png
+File: favicon-32x32.png
+File: apple-touch-icon.png (180x180)
+File: android-chrome-192x192.png
+File: android-chrome-512x512.png
+File: site.webmanifest
+
+================================================================================
+SOCIAL MEDIA PREVIEW IMAGES
+================================================================================
+File: og-image.jpg (1200x630px for Facebook/LinkedIn)
+File: twitter-card.jpg (1200x600px)
+
+================================================================================
+TOTAL ESTIMATE
+================================================================================
+Hero Backgrounds:    7 files
+Category Icons:      9 SVG files
+Product Photos:     50+ files
+Team Photos:         6 files
+Certificates:        4 files
+Partner Logos:       6 files
+UI Icons:           30+ SVG files
+Infrastructure:      4 files
+Industry Images:     6 files
+Favicons:            7 files
+Social Preview:      2 files
+------------------------
+TOTAL:            ~125 files
+
+================================================================================
+CURRENT STATUS: PLACEHOLDER IMAGES IN USE
+================================================================================
+All product images currently use via.placeholder.com service.
+Replace with actual photography when available.
+
+Priority for replacement:
+1. Hero backgrounds (Home page)
+2. Product photos for top 20 bestsellers
+3. Team photos
+4. Certificate thumbnails
+5. Partner logos
+6. Remaining product photos

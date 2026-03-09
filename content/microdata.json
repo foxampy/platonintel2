@@ -1,0 +1,184 @@
+{
+  "_comment": "Schema.org микроразметка для сайта Плато-Интел",
+  "version": "1.0",
+  "schemas": {
+    "organization": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Плато-Интел",
+      "alternateName": "ООО Плато-Интел",
+      "url": "https://plato-intel.by",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://plato-intel.by/images/logo.png",
+        "width": 200,
+        "height": 60
+      },
+      "description": "Поставщик электротехнического оборудования для кранов и промышленности с 2008 года.",
+      "foundingDate": "2008",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Промышленная, 15",
+        "addressLocality": "Минск",
+        "addressRegion": "Минская область",
+        "postalCode": "220000",
+        "addressCountry": "BY"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+375-17-123-45-67",
+          "contactType": "sales",
+          "availableLanguage": ["Russian"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+375-29-123-45-67",
+          "contactType": "customer service",
+          "availableLanguage": ["Russian"]
+        }
+      ],
+      "email": "info@plato-intel.by"
+    },
+    "localBusiness": {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Плато-Интел",
+      "image": "https://plato-intel.by/images/store.jpg",
+      "url": "https://plato-intel.by",
+      "telephone": "+375-17-123-45-67",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Промышленная, 15",
+        "addressLocality": "Минск",
+        "postalCode": "220000",
+        "addressCountry": "BY"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.904539,
+        "longitude": 27.561524
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ],
+      "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+      "currenciesAccepted": "BYN",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    },
+    "product_template": {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "{{product_name}}",
+      "image": "https://plato-intel.by/images/products/{{product_id}}.jpg",
+      "description": "{{product_description}}",
+      "sku": "{{sku}}",
+      "brand": {
+        "@type": "Brand",
+        "name": "{{brand_name}}"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://plato-intel.by/product/{{product_slug}}",
+        "priceCurrency": "BYN",
+        "price": "{{price}}",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "Плато-Интел"
+        }
+      }
+    },
+    "breadcrumb": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://plato-intel.by/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{category_name}}",
+          "item": "https://plato-intel.by/catalog/{{category_slug}}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{product_name}}",
+          "item": "https://plato-intel.by/product/{{product_slug}}/"
+        }
+      ]
+    },
+    "faq_page": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "{{question_text}}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{answer_text}}"
+          }
+        }
+      ]
+    },
+    "article": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{article_title}}",
+      "description": "{{article_description}}",
+      "image": "https://plato-intel.by/images/articles/{{article_slug}}.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Плато-Интел"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Плато-Интел",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://plato-intel.by/images/logo.png"
+        }
+      },
+      "datePublished": "{{publish_date}}",
+      "dateModified": "{{modify_date}}"
+    },
+    "web_site": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://plato-intel.by",
+      "name": "Плато-Интел",
+      "description": "Электротехническое оборудование для кранов",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://plato-intel.by/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  }
+}

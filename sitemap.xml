@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- ========================================
+         PLATO-INTEL v2 — XML Sitemap
+         Generated: 2024
+         ======================================== -->
+
+    <!-- Главная страница -->
+    <url>
+        <loc>https://platointel.by/</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Каталог -->
+    <url>
+        <loc>https://platointel.by/catalog.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- О компании -->
+    <url>
+        <loc>https://platointel.by/about.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Контакты -->
+    <url>
+        <loc>https://platointel.by/contacts.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Доставка и оплата -->
+    <url>
+        <loc>https://platointel.by/delivery.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Гарантия -->
+    <url>
+        <loc>https://platointel.by/warranty.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Статьи -->
+    <url>
+        <loc>https://platointel.by/articles.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Категории продукции -->
+    <url>
+        <loc>https://platointel.by/category/kranovye-tormoza.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/crane-brakes.jpg</image:loc>
+            <image:title>Крановые тормоза</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/kontaktory.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/contactors.jpg</image:loc>
+            <image:title>Контакторы</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/vyklyuchateli.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/switches.jpg</image:loc>
+            <image:title>Выключатели</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/elektromagnity.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/electromagnets.jpg</image:loc>
+            <image:title>Электромагниты</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/puskateli.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/starters.jpg</image:loc>
+            <image:title>Пускатели</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/rele.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/relays.jpg</image:loc>
+            <image:title>Реле</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/kontrollery.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/controllers.jpg</image:loc>
+            <image:title>Контроллеры</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/koncevye-vyklyuchateli.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/limit-switches.jpg</image:loc>
+            <image:title>Концевые выключатели</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/category/gidravlika.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/categories/hydraulics.jpg</image:loc>
+            <image:title>Гидравлика</image:title>
+        </image:image>
+    </url>
+
+    <!-- Популярные товары -->
+    <url>
+        <loc>https://platointel.by/product/tormoz-tkg-160-s-gidrotolkatelem-te-30.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/tkg-160-main.jpg</image:loc>
+            <image:title>Тормоз ТКГ-160 с гидротолкателем ТЭ-30</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/kontaktor-kt-6012-100a.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/kt-6012-main.jpg</image:loc>
+            <image:title>Контактор КТ-6012 100А</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/vyklyuchatel-va55-41-250a.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/va55-41-250-main.jpg</image:loc>
+            <image:title>Выключатель ВА55-41 250А</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/elektromagnit-emis-1100.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/emis-1100-main.jpg</image:loc>
+            <image:title>Электромагнит ЭМИС-1100</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/puskatel-pml-1100.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/pml-1100-main.jpg</image:loc>
+            <image:title>Пускатель ПМЛ-1100</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/rele-rtt-100a.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/rtt-100a-main.jpg</image:loc>
+            <image:title>Реле РТТ-100А</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/kontroller-kkp-1102.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/kkp-1102-main.jpg</image:loc>
+            <image:title>Контроллер ККП-1102</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/vyklyuchatel-vp-15.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/vp-15-main.jpg</image:loc>
+            <image:title>Выключатель ВП-15</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/product/gidrotolkatel-te-30.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://platointel.by/assets/images/products/te-30-main.jpg</image:loc>
+            <image:title>Гидротолкатель ТЭ-30</image:title>
+        </image:image>
+    </url>
+
+    <!-- Статьи -->
+    <url>
+        <loc>https://platointel.by/articles/vybor-kranovogo-tormoza.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/articles/tekhnicheskoe-obsluzhivanie-kontaktorov.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://platointel.by/articles/sovremennye-sistemy-upravleniya-kranami.html</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>
